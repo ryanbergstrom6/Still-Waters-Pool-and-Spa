@@ -10,10 +10,12 @@
             margin: 0;
             padding: 0;
             color: #333;
+            background: url('eastern-washington-pool.jpg') no-repeat center center fixed;
+            background-size: cover;
         }
 
         header {
-            background: linear-gradient(to right, #0077b6, #00b37e);
+            background: rgba(0, 119, 182, 0.8);
             color: white;
             padding: 20px 10px;
             text-align: center;
@@ -69,6 +71,20 @@
         .service img {
             max-width: 100%;
             border-radius: 10px;
+        }
+
+        .reviews {
+            background: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            margin: 20px auto;
+            width: 80%;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .review {
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
         }
 
         footer {
@@ -159,6 +175,13 @@
         </div>
     </section>
 
+    <section class="reviews">
+        <h2>What Our Clients Say</h2>
+        <div class="review" style="opacity: 1;">"Still Waters transformed our backyard pool into a paradise!" - Sarah L.</div>
+        <div class="review">"Their maintenance services are top-notch. Highly recommend!" - Michael R.</div>
+        <div class="review">"Affordable and reliable. Thank you for the great work!" - Emma T.</div>
+    </section>
+
     <section id="gallery">
         <h2>Gallery</h2>
         <p>Coming Soon! Showcase of our best work.</p>
@@ -183,5 +206,18 @@
     <footer>
         <p>&copy; 2025 Still Waters Pool and Spa. All rights reserved.</p>
     </footer>
+
+    <script>
+        // Fade-in effect for reviews
+        let reviews = document.querySelectorAll('.review');
+        let observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = 1;
+                }
+            });
+        });
+        reviews.forEach(review => observer.observe(review));
+    </script>
 </body>
 </html>
